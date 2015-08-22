@@ -8,6 +8,7 @@ defmodule JwtClaims.Validation do
   alias JwtClaims.Claim
 
   @registered_claims [
+    :aud,
     :exp
   ]
 
@@ -32,5 +33,6 @@ defmodule JwtClaims.Validation do
   defp reject(_, :error, _), do: false
   defp reject(key, claims, options), do: reject(key, Dict.fetch(claims, key), options)
 
+  defp claim_module(:aud), do: Claim.Aud
   defp claim_module(:exp), do: Claim.Exp
 end

@@ -6,14 +6,24 @@ defmodule JwtClaims.ValidationTest do
 
   doctest Validation
 
+  @uri "http://www.example.com"
+  @recipient "recipient"
+  @aud [@uri, @recipient]
+
   @after_now Util.time_now + 1
   @before_now Util.time_now - 1
 
+  @default_options %{
+    aud: @uri
+  }
+
   @default_claims %{
+    aud: [@uri, @recipient],
     exp: @after_now
   }
 
   @invalid_claims %{
+    aud: ["http://www.other.com", "other recipient"],
     exp: @before_now
   }
 
@@ -24,6 +34,7 @@ defmodule JwtClaims.ValidationTest do
   test "rejected/2 w invalid claims, returns list of rejected claims" do
     result = Validation.rejected(@invalid_claims, @default_options)
     assert result == [
+      :aud,
       :exp
     ]
   end
