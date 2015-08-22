@@ -10,6 +10,7 @@ defmodule JwtClaims.Validation do
   @registered_claims [
     :aud,
     :exp,
+    :iat,
     :nbf
   ]
 
@@ -36,5 +37,6 @@ defmodule JwtClaims.Validation do
 
   defp claim_module(:aud), do: Claim.Aud
   defp claim_module(:exp), do: Claim.Exp
+  defp claim_module(:iat), do: Claim.Iat
   defp claim_module(:nbf), do: Claim.Nbf
 end

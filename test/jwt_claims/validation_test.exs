@@ -20,12 +20,14 @@ defmodule JwtClaims.ValidationTest do
   @default_claims %{
     aud: [@uri, @recipient],
     exp: @after_now,
+    iat: @before_now,
     nbf: @before_now
   }
 
   @invalid_claims %{
     aud: ["http://www.other.com", "other recipient"],
     exp: @before_now,
+    iat: @after_now,
     nbf: @after_now
   }
 
@@ -38,6 +40,7 @@ defmodule JwtClaims.ValidationTest do
     assert result == [
       :aud,
       :exp,
+      :iat,
       :nbf
     ]
   end
