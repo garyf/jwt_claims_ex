@@ -1,0 +1,2 @@
+defmodule JwtClaims do
+end
