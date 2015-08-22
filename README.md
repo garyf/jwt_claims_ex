@@ -4,7 +4,7 @@
 
 ### Description
 
-An Elixir implementation of the JSON Web Token (JWT) Standards Track [RFC 7519][rfc7519] for OPTIONAL registered claims
+An Elixir implementation of the JSON Web Token (JWT) optional registered claims, [RFC 7519][rfc7519]
 
 ## Usage
 

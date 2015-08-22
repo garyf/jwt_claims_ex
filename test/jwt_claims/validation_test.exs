@@ -19,12 +19,14 @@ defmodule JwtClaims.ValidationTest do
 
   @default_claims %{
     aud: [@uri, @recipient],
-    exp: @after_now
+    exp: @after_now,
+    nbf: @before_now
   }
 
   @invalid_claims %{
     aud: ["http://www.other.com", "other recipient"],
-    exp: @before_now
+    exp: @before_now,
+    nbf: @after_now
   }
 
   test "rejected/2 w valid claims, returns empty list" do
@@ -35,7 +37,8 @@ defmodule JwtClaims.ValidationTest do
     result = Validation.rejected(@invalid_claims, @default_options)
     assert result == [
       :aud,
-      :exp
+      :exp,
+      :nbf
     ]
   end
 end
