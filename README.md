@@ -52,5 +52,5 @@ Elixir 1.0.5 and up
 
 [travis]: https://travis-ci.org/garyf/jwt_claims_ex
 [ci_img]: https://travis-ci.org/garyf/jwt_claims_ex.svg?branch=master
-[hex_docs]: http://hexdocs.pm/jwt_claims_ex
+[hex_docs]: http://hexdocs.pm/jwt_claims
 [hd_img]: http://img.shields.io/badge/docs-hexpm-blue.svg
