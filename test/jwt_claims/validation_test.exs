@@ -13,14 +13,18 @@ defmodule JwtClaims.ValidationTest do
   @after_now Util.time_now + 1
   @before_now Util.time_now - 1
 
+  @issuer "issuer"
+
   @default_options %{
-    aud: @uri
+    aud: @uri,
+    iss: @issuer
   }
 
   @default_claims %{
     aud: [@uri, @recipient],
     exp: @after_now,
     iat: @before_now,
+    iss: @issuer,
     nbf: @before_now
   }
 
@@ -28,6 +32,7 @@ defmodule JwtClaims.ValidationTest do
     aud: ["http://www.other.com", "other recipient"],
     exp: @before_now,
     iat: @after_now,
+    iss: "other issuer",
     nbf: @after_now
   }
 
@@ -41,6 +46,7 @@ defmodule JwtClaims.ValidationTest do
       :aud,
       :exp,
       :iat,
+      :iss,
       :nbf
     ]
   end

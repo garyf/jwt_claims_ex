@@ -11,6 +11,7 @@ defmodule JwtClaims.Validation do
     :aud,
     :exp,
     :iat,
+    :iss,
     :nbf
   ]
 
@@ -38,5 +39,6 @@ defmodule JwtClaims.Validation do
   defp claim_module(:aud), do: Claim.Aud
   defp claim_module(:exp), do: Claim.Exp
   defp claim_module(:iat), do: Claim.Iat
+  defp claim_module(:iss), do: Claim.Iss
   defp claim_module(:nbf), do: Claim.Nbf
 end

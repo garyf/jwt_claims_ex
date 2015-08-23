@@ -6,6 +6,21 @@ defmodule JwtClaims.StringOrUri do
   @blank_string_re ~r{\A[[:space:]]*\z}
 
   @doc """
+  Predicate to compare two strings for equality, and that both are present
+
+  ## Example
+      iex> StringOrUri.present_and_equal?("", "")
+      false
+
+  Returns `true` or `false`
+  """
+  def present_and_equal?(a, b) do
+    present?(a) &&
+      present?(b) &&
+      a === b
+  end
+
+  @doc """
   A string is present if it is not blank
 
   Returns `false` if a string is blank, otherwise `true`
