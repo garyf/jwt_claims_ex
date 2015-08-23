@@ -44,6 +44,7 @@ defmodule JwtClaims.Mixfile do
     [
       contributors: ["Gary Fleshman"],
       licenses: ["MIT"],
+      links: %{github: "https://github.com/garyf/jwt_claims_ex"}
     ]
   end
 end
