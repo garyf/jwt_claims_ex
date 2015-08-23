@@ -7,11 +7,11 @@ defmodule JwtClaims.Claim.IssTest do
 
   @issuer "issuer"
 
-  test "reject?/2 w :iss claim a string w match" do
+  test "reject?/2 w :iss claim match" do
     refute Iss.reject?(@issuer, %{iss: @issuer})
   end
 
-  test "reject?/2 w :iss claim a string w/o match" do
+  test "reject?/2 w/o :iss claim match" do
     assert Iss.reject?(@issuer, %{iss: "not issuer"})
   end
 

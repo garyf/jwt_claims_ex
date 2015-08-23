@@ -12,7 +12,9 @@ defmodule JwtClaims.Validation do
     :exp,
     :iat,
     :iss,
-    :nbf
+    :jti,
+    :nbf,
+    :sub
   ]
 
   @doc """
@@ -40,5 +42,7 @@ defmodule JwtClaims.Validation do
   defp claim_module(:exp), do: Claim.Exp
   defp claim_module(:iat), do: Claim.Iat
   defp claim_module(:iss), do: Claim.Iss
+  defp claim_module(:jti), do: Claim.Jti
   defp claim_module(:nbf), do: Claim.Nbf
+  defp claim_module(:sub), do: Claim.Sub
 end

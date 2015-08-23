@@ -14,10 +14,14 @@ defmodule JwtClaims.ValidationTest do
   @before_now Util.time_now - 1
 
   @issuer "issuer"
+  @jwt_id "jwt_id"
+  @subject "subject"
 
   @default_options %{
     aud: @uri,
-    iss: @issuer
+    iss: @issuer,
+    jti: @jwt_id,
+    sub: @subject
   }
 
   @default_claims %{
@@ -25,7 +29,9 @@ defmodule JwtClaims.ValidationTest do
     exp: @after_now,
     iat: @before_now,
     iss: @issuer,
-    nbf: @before_now
+    jti: @jwt_id,
+    nbf: @before_now,
+    sub: @subject
   }
 
   @invalid_claims %{
@@ -33,7 +39,9 @@ defmodule JwtClaims.ValidationTest do
     exp: @before_now,
     iat: @after_now,
     iss: "other issuer",
-    nbf: @after_now
+    jti: "other jwt_id",
+    nbf: @after_now,
+    sub: "other subject"
   }
 
   test "rejected/2 w valid claims, returns empty list" do
@@ -47,7 +55,9 @@ defmodule JwtClaims.ValidationTest do
       :exp,
       :iat,
       :iss,
-      :nbf
+      :jti,
+      :nbf,
+      :sub
     ]
   end
 end

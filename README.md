@@ -1,6 +1,6 @@
-# JWT (JSON Web Token) Claims [![travis][ci_img]][travis] [![hex docs][hd_img]][hex_docs]
+# JWT Claims [![travis][ci_img]][travis] [![hex docs][hd_img]][hex_docs]
 
-## Verification of a JWT Claims Set for Elixir
+## Verification of a JWT (JSON Web Token) Claims Set for Elixir
 
 ### Description
 
@@ -31,6 +31,8 @@ Returns a tuple, either:
 * **alg** (optional, default: `"HS256"`)
 * **key** (required unless alg is "none")
 
+Please refer to the [JSON Web Token][json_web_token] package for additional guidance regarding JWT options
+
 Example
 
 ```elixir
@@ -46,6 +48,7 @@ secure_jwt_example = "eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqb2UiL
 Elixir 1.0.5 and up
 
 [rfc7519]: http://tools.ietf.org/html/rfc7519
+[json_web_token]: https://github.com/garyf/json_web_token_ex
 
 [travis]: https://travis-ci.org/garyf/jwt_claims_ex
 [ci_img]: https://travis-ci.org/garyf/jwt_claims_ex.svg?branch=master

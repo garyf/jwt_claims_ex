@@ -10,7 +10,7 @@ defmodule JwtClaims.Mixfile do
       start_permanent: Mix.env == :prod,
       deps: deps,
       package: package,
-      description: "Elixir implementation of JSON Web Token (JWT) registered claims, RFC 7519",
+      description: "Elixir implementation of JWT registered claims, RFC 7519",
       test_coverage: [tool: ExCoveralls]
     ]
   end
