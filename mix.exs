@@ -4,8 +4,8 @@ defmodule JwtClaims.Mixfile do
   def project do
     [
       app: :jwt_claims,
-      version: "0.0.2",
-      elixir: "~> 1.0.5",
+      version: "0.0.3",
+      elixir: "~> 1.1",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps,
@@ -35,7 +35,7 @@ defmodule JwtClaims.Mixfile do
     [
       {:json_web_token, "~> 0.2"},
       {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.7", only: :dev},
+      {:ex_doc, "~> 0.10", only: :dev},
       {:excoveralls, "~> 0.3", only: :test}
     ]
   end

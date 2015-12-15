@@ -1,5 +1,12 @@
 ## Changelog
 
+### v0.0.3 (2015-12-15)
+
+* enhancements
+  * README supported registered claims
+  * Elixir version ~> 1.1
+  * Upgrade dependency versions
+
 ### v0.0.2 (2015-08-23)
 
 * Bug fixes

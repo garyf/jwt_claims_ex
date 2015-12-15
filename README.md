@@ -12,7 +12,7 @@ Add JwtClaims as a dependency in your `mix.exs` file:
 
 ```elixir
 defp deps do
-  [{:jwt_claims, ">= 0.0"}]
+  [{:jwt_claims, "~> 0.0"}]
 end
 ```
 
@@ -44,8 +44,17 @@ secure_jwt_example = "eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqb2UiL
 
 ```
 
+### Supported registered claim names
+* "**iss**" (Issuer)
+* "**sub**" (Subject)
+* "**aud**" (Audience)
+* "**exp**" (Expiration Time)
+* "**nbf**" (Not Before)
+* "**iat**" (Issued At)
+* "**jti**" (JWT ID)
+
 ### Supported Elixir versions
-Elixir 1.0.5 and up
+Elixir 1.1 and up
 
 [rfc7519]: http://tools.ietf.org/html/rfc7519
 [json_web_token]: https://github.com/garyf/json_web_token_ex
