@@ -42,7 +42,7 @@ defmodule JwtClaims.Mixfile do
 
   defp package do
     [
-      contributors: ["Gary Fleshman"],
+      maintainers: ["Gary Fleshman"],
       licenses: ["MIT"],
       links: %{github: "https://github.com/garyf/jwt_claims_ex"}
     ]
