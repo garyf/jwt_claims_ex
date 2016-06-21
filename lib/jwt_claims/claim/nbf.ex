@@ -21,7 +21,7 @@ defmodule JwtClaims.Claim.Nbf do
   until the specified UTC date/time; non-integer values may be used
   """
   def reject?(numeric_date, options \\ %{})
-  def reject?(numeric_date, options) when is_number(numeric_date) do
+  def reject?(numeric_date, _options) when is_number(numeric_date) do
     numeric_date > Util.time_now
   end
   def reject?(_, _), do: true
