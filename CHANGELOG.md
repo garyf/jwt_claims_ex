@@ -1,5 +1,11 @@
 ## Changelog
 
+### v0.0.4 (2016-10-05)
+
+* enhancements
+  * Update dependency versions
+  * Suppress unused variable warnings
+
 ### v0.0.3 (2015-12-15)
 
 * enhancements
