@@ -17,7 +17,7 @@ defmodule JwtClaims.Claim.Sub do
   Returns `true` or `false`
   """
   def reject?(sub, options) do
-    expected_subject = Dict.get(options, :sub)
+    expected_subject = Map.get(options, :sub)
     !StringOrUri.present_and_equal?(sub, expected_subject)
   end
 end

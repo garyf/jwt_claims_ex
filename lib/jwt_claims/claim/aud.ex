@@ -20,7 +20,7 @@ defmodule JwtClaims.Claim.Aud do
   """
   def reject?(aud, options \\ %{})
   def reject?(aud, options) when is_list(aud) do
-    expected_recipient = Dict.get(options, :aud)
+    expected_recipient = Map.get(options, :aud)
     !present_and_member?(aud, expected_recipient)
   end
   def reject?(aud, options), do: reject?([aud], options)
