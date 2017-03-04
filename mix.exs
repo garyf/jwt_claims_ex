@@ -4,12 +4,12 @@ defmodule JwtClaims.Mixfile do
   def project do
     [
       app: :jwt_claims,
-      version: "0.0.4",
+      version: "0.0.5",
       elixir: "~> 1.3",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: deps,
-      package: package,
+      deps: deps(),
+      package: package(),
       description: "Elixir implementation of JWT registered claims, RFC 7519",
       test_coverage: [tool: ExCoveralls]
     ]

@@ -36,7 +36,7 @@ defmodule JwtClaims.Validation do
 
   defp reject(key, {:ok, value}, options), do: apply(claim_module(key), :reject?, [value, options])
   defp reject(_, :error, _), do: false
-  defp reject(key, claims, options), do: reject(key, Dict.fetch(claims, key), options)
+  defp reject(key, claims, options), do: reject(key, Map.fetch(claims, key), options)
 
   defp claim_module(:aud), do: Claim.Aud
   defp claim_module(:exp), do: Claim.Exp

@@ -17,7 +17,7 @@ defmodule JwtClaims.Claim.Iss do
   Returns `true` or `false`
   """
   def reject?(iss, options) do
-    expected_issuer = Dict.get(options, :iss)
+    expected_issuer = Map.get(options, :iss)
     !StringOrUri.present_and_equal?(iss, expected_issuer)
   end
 end

@@ -17,7 +17,7 @@ defmodule JwtClaims.Claim.Jti do
   Returns `true` or `false`
   """
   def reject?(jti, options) do
-    expected_jti = Dict.get(options, :jti)
+    expected_jti = Map.get(options, :jti)
     !StringOrUri.present_and_equal?(jti, expected_jti)
   end
 end
