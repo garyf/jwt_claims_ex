@@ -33,7 +33,7 @@ Returns a tuple, either:
 
 Please refer to the [JSON Web Token][json_web_token] package for additional guidance regarding JWT options
 
-Example
+Example with HMAC SHA256
 
 ```elixir
 
@@ -41,6 +41,41 @@ secure_jwt_example = "eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqb2UiL
 
 # verify with default algorithm, HMAC SHA256
 {:ok, verified_claims} = JwtClaims.verify(secure_jwt_example, %{key: "gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr9C"})
+
+```
+
+Example with RS256
+
+```elixir
+public_key = "-----BEGIN PUBLIC KEY------.......-----END PUBLIC KEY-----"
+key = JsonWebToken.Algorithm.RsaUtil.public_key(public_key) # JsonWebToken and JwtClaims require that a key is generated as such. Otherwise we get an error.
+options = %{
+  alg: "RS256",
+  key: key
+}
+
+JwtClaims.verify(jwt, options)
+
+```
+
+Example with RS256 and claims to validate
+```elixir
+public_key = "-----BEGIN PUBLIC KEY------.......-----END PUBLIC KEY-----"
+key = JsonWebToken.Algorithm.RsaUtil.public_key(public_key) # JsonWebToken and JwtClaims require that a key is generate>
+seconds = JwtClaims.Util.time_now() - 1 # Define the current time to verify if website is not expired.
+options = %{
+  alg: "RS256",
+  key: key,
+  admin: true,
+  exp: seconds,
+  sub: "123456789"
+}
+
+case JwtClaims.verify(jwt, options) do
+  {:ok, verified_claims} -> verified_claims
+  {:error, unverified} -> unverified
+end
+
 
 ```
 
